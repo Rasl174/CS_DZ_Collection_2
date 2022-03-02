@@ -12,16 +12,15 @@ namespace CS_DZ_Collection_2
         {
             Queue<int> payClients = new Queue<int>();
 
+            int check = 0;
+
             payClients.Enqueue(100);
             payClients.Enqueue(20);
             payClients.Enqueue(9);
-
-            int check = 0;
-
-            foreach (var item in payClients)
+                
+            for (int i = -2; i < payClients.Count; i++)
             {
-                check = item + check;
-                Console.WriteLine("Произошла оплата - " + item + "\nУ нас на счету - " + check);
+                Console.WriteLine("Произошла оплата - " + payClients.Peek() + "\nУ нас на счету - " + (check += payClients.Dequeue()));
                 Console.ReadKey();
                 Console.Clear();
             }

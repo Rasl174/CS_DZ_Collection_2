@@ -10,18 +10,18 @@ namespace CS_DZ_Collection_2
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> payClients = new Dictionary<string, int>();
+            Queue<int> payClients = new Queue<int>();
 
-            payClients.Add("Вася", 100);
-            payClients.Add("Маша", 20);
-            payClients.Add("Петр", 9);
+            payClients.Enqueue(100);
+            payClients.Enqueue(20);
+            payClients.Enqueue(9);
 
             int check = 0;
 
             foreach (var item in payClients)
             {
-                check = item.Value + check;
-                Console.WriteLine("Заплатил клиент - " + item.Key + "\nУ нас на счету - " + check);
+                check = item + check;
+                Console.WriteLine("Произошла оплата - " + item + "\nУ нас на счету - " + check);
                 Console.ReadKey();
                 Console.Clear();
             }
